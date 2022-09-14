@@ -10,7 +10,7 @@ class Singleton {
 
 
 
-public class Singleton_Run {
+public class SingletonPattern {
     public static void main(String[] args) {
         Singleton a = Singleton.getInstance();
         Singleton b = Singleton.getInstance();
