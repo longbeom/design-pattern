@@ -69,12 +69,9 @@ class ShoppingCart {
     }
 
     public int calculateTotal() {
-        int sum = 0;
-        for (Item item : items) {
-            sum += item.getPrice();
-        }
-        
-        return sum;
+        return items.stream()
+                .mapToInt(Item::getPrice)
+                .sum();
     }
 
     public void pay(PaymentStrategy paymentMethod) {
