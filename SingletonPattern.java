@@ -9,11 +9,12 @@ class Singleton {
 }
 
 
+
 public class Singleton_Run {
     public static void main(String[] args) {
         Singleton a = Singleton.getInstance();
         Singleton b = Singleton.getInstance();
-        
+
         System.out.println(a.hashCode());
         System.out.println(b.hashCode());
         System.out.println(a == b);
