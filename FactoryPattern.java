@@ -8,9 +8,9 @@ abstract class Coffee {
 }
 
 class CoffeeFactory {
-    public static Coffee getCoffee(String type, int price) {
-        if ("Latte".equalsIgnoreCase(type)) return new Latte(price);
-        else if ("Americano".equalsIgnoreCase(type)) return new Americano(price);
+    public static Coffee getCoffee(CoffeeType type, int price) {
+        if (type == CoffeeType.LATTE) return new Latte(price);
+        else if (type == CoffeeType.AMERICANO) return new Americano(price);
         else {
             return new DefaultCoffee();
         }
@@ -56,13 +56,18 @@ class Americano extends Coffee {
     }
 }
 
+enum CoffeeType {
+    LATTE,
+    AMERICANO,
+    DEFAULT
+}
 
 
 public class FactoryPattern {
     public static void main(String[] args) {
-        Coffee latte = CoffeeFactory.getCoffee("Latte", 4000);
-        Coffee americano = CoffeeFactory.getCoffee("Americano", 3000);
-        System.out.println("Factory Latte ::" + latte);
-        System.out.println("Factory Americano ::" + americano);
+        Coffee latte = CoffeeFactory.getCoffee(CoffeeType.LATTE, 4000);
+        Coffee americano = CoffeeFactory.getCoffee(CoffeeType.AMERICANO, 3000);
+        System.out.println("Factory Latte : " + latte);
+        System.out.println("Factory Americano : " + americano);
     }
 }
